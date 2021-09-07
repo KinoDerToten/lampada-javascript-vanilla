@@ -2,12 +2,20 @@ const turnOn = document.querySelector("#turnOn");
 const turnOff = document.querySelector("#turnOff");
 const lamp = document.querySelector("#lamp");
 
+const isLampadaBroken = () => {
+    return lamp.src.indexOf('quebrada') > -1;
+};
+
 const lampOn = () => {
-    lamp.src = './img/ligada.jpg';
+    if (!isLampadaBroken()) {
+        lamp.src = './img/ligada.jpg';   
+    }
 };
 
 const lampOff = () => {
-    lamp.src = './img/desligada.jpg';
+    if (!isLampadaBroken()) {
+        lamp.src = './img/desligada.jpg';    
+    }
 };
 
 const lampBroken = () => {
